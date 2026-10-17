@@ -1,0 +1,77 @@
+# ==========================
+# Maven / Java
+# ==========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+ 
+# ==========================
+# IDEs
+# ==========================
+.idea/
+*.iml
+ 
+.vscode/
+ 
+.settings/
+.project
+.classpath
+ 
+# ==========================
+# Logs
+# ==========================
+*.log
+*.log.*
+logs/
+log/
+ 
+# ==========================
+# Reportes
+# ==========================
+allure-results/
+allure-report/
+test-output/
+surefire-reports/
+ 
+# ==========================
+# Evidencias
+# ==========================
+screenshots/
+evidencias/
+evidence/
+reports/
+ 
+# ==========================
+# Drivers
+# ==========================
+drivers/
+ 
+# ==========================
+# Configuración local
+# ==========================
+*.env
+config.properties
+environment.properties
+application.properties
+ 
+# ==========================
+# Temporales
+# ==========================
+*.tmp
+*.temp
+*.bak
+*.old
+*.swp
+ 
+# ==========================
+# Sistema Operativo
+# ==========================
+.DS_Store
+Thumbs.db
+ 
+# ==========================
+# Caché
+# ==========================
+cache_log.txt
