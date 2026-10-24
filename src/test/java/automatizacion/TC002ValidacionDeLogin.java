@@ -1,7 +1,9 @@
 package automatizacion;
 
+import java.lang.String;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
@@ -23,10 +25,10 @@ public void inicializarNavegador (){
 @Test
 public void validarTituloDeLaPagina(){
     //Abrir nuestro navegador
-    driver.get("https://practicetestautomation.com/practice-test-login/");
+    driver.get("https://the-internet.herokuapp.com/login");
     //Otener el titulo del sitio web
     String tituloActual=driver.getTitle();
-    String tituloEsperado="Test Login | Practice Test Automation";
+    String tituloEsperado="The Internet";
     //Validar el titulo del sitio web
     Assertions.assertEquals(tituloEsperado,tituloActual,"El título de la pagina no coincide");
 }
@@ -37,11 +39,33 @@ public void validarTituloDeLaPagina(){
 public void loginExitoso()
 {
 //Abrir nuestro navegador
-driver.get("https://practicetestautomation.com/practice-test-login/");
+driver.get("https://the-internet.herokuapp.com/login");
 //Ingresar las credencias de autenticación 
-driver.findElement(By.id("username")).sendKeys("student");
-driver.findElement(By.id("password")).sendKeys("Password123");
-driver.findElement(By.id("submit")).click();
+driver.findElement(By.id("username")).sendKeys("tomsmith");
+driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
+//driver.findElement(By.xpath("*//[@type="submit"]")).click();
+driver.findElement(By.xpath("//*[@type='submit']")).click();
+//Validación de URL
+
+String urlEsperada= "https://the-internet.herokuapp.com/secure";
+Assertions.assertEquals(urlEsperada,driver.getCurrentUrl(),"La url encontrada no coincide");
+
+//Validación de mensaje de Login exitoso
+
+String mensajeEsperado="You logged into a secure area!";
+WebElement mensajeLogInExitoso=driver.findElement(By.id("flash"));
+String mensajeLogInTexto=mensajeLogInExitoso.getText();
+
+//Uso de condicional para validar el login exitoso
+
+if(mensajeLogInTexto.contains(mensajeEsperado)){
+System.out.println("Login Exitoso validado correctamente");
+} else {
+
+    System.out.println("Error en el mensaje de login encontrado");
+    Assertions.fail("Se esperaba el mensaje: "+mensajeEsperado
+    +" \n Pero se encontró: "+mensajeLogInTexto);
+}
 
 
 }
