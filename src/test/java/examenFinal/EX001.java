@@ -45,7 +45,7 @@ Thread.sleep(2000);
         botonLogin.click();
         
         //Ingresar credenciales
-        String email="orlando.martinez@dominioe.com";
+        String email="orlando.martinez@dominio2.com";
         String pwd="Password12345678*";
         WebElement campoEmail=wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("field-email")));           
         campoEmail.sendKeys(email);        
@@ -127,7 +127,7 @@ Thread.sleep(2000);
             String confirmacionOrdenEsperado="Your order is confirmed";
             System.out.println("Obtenida: "+confirmacionOrden+" Esperada: "+confirmacionOrdenEsperado);
             Assertions.assertTrue(confirmacionOrden.contains(confirmacionOrdenEsperado.toUpperCase()),"La orden no pudo ser procesada correctamente.");
-            pausa();            
+                     
            
 
 }
